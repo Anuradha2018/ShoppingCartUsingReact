@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 class Counter extends Component {
+
   //state includes any data that the component needs
   state = {
     count: 0
@@ -12,6 +13,7 @@ class Counter extends Component {
       </div>
     );
   }
+
   formatCount() {
     //Object destructuring
     // Old: return this.state.count === 0 ? "Zero" : this.state.count;
@@ -19,6 +21,7 @@ class Counter extends Component {
     const { count } = this.state;
     return count === 0 ? "Zero" : count;
   }
+
 }
 
 export default Counter;
