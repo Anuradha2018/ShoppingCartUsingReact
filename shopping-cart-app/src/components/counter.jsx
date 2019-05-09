@@ -3,8 +3,19 @@ class Counter extends Component {
   state = {
     count: 0
   };
+  constructor() {
+    super();
+    // this here gives reference to the counter object.
+    // console.log("çonstructor", this);
+    this.handleIncrement = this.handleIncrement.bind(this);
+  }
   handleIncrement() {
-    console.log("íncrement clicked");
+    // this gives error because we dont have access to the state property
+    // console.log("íncrement clicked", this.state.count);
+    // if 'this'is called as a part of method in an object, 'this' returns reference to that object
+    //if this is a part of a standalone function, it refers to window object
+    // if strict mode is enabled, this is undefined
+    console.log("increment clicked", this);
   }
 
   render() {
