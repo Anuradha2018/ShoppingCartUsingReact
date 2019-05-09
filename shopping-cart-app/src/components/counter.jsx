@@ -17,7 +17,8 @@ class Counter extends Component {
     // if 'this'is called as a part of method in an object, 'this' returns reference to that object
     //if this is a part of a standalone function, it refers to window object
     // if strict mode is enabled, this is undefined
-    console.log("increment clicked", this);
+    // console.log("increment clicked", this);
+    this.setState({ count: this.state.count + 1 });
   };
 
   render() {
