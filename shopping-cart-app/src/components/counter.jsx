@@ -11,7 +11,7 @@ class Counter extends Component {
   }*/
   // arrow function dont rebind the this key word, it rebinds
 
-  handleIncrement = () => {
+  handleIncrement = product => {
     // this gives error because we dont have access to the state property
     // console.log("íncrement clicked", this.state.count);
     // if 'this'is called as a part of method in an object, 'this' returns reference to that object
@@ -19,16 +19,19 @@ class Counter extends Component {
     // if strict mode is enabled, this is undefined
     // console.log("increment clicked", this);
     // below method is telling react that this state is going to change, react will schedule a call to the render method, this is an asynchronous call.
+    console.log(product);
     this.setState({ count: this.state.count + 1 });
   };
-
+  doHandleIncrement = () => {
+    this.handleIncrement({ id: 1 });
+  };
   render() {
     let classes = this.getBadgeClasses();
     return (
       <div>
         <span className={classes}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={this.doHandleIncrement}
           className="btn btn-secondary btn-sm"
         >
           Increment
