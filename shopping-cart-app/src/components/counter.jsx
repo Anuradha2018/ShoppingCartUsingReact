@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 class Counter extends Component {
   state = {
-    count: 0
+    value: this.props.value
   };
   /*constructor() {
     super();
@@ -20,10 +20,14 @@ class Counter extends Component {
     // console.log("increment clicked", this);
     // below method is telling react that this state is going to change, react will schedule a call to the render method, this is an asynchronous call.
     console.log(product);
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.count + 1 });
   };
 
   render() {
+    // 'Props' are plain javascript objects that includes all the attributes that we set in the counters component
+    // below in line 31, value and selected will be the property of the prop object
+    //key will not be part of that because key are used to uniquely identify elements
+    // console.log("props", this.props);
     let classes = this.getBadgeClasses();
     return (
       <div>
