@@ -20,7 +20,7 @@ class Counter extends Component {
     // console.log("increment clicked", this);
     // below method is telling react that this state is going to change, react will schedule a call to the render method, this is an asynchronous call.
     console.log(product);
-    this.setState({ value: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   render() {
@@ -28,12 +28,13 @@ class Counter extends Component {
     // below in line 31, value and selected will be the property of the prop object
     //key will not be part of that because key are used to uniquely identify elements
     // console.log("props", this.props);
-    let classes = this.getBadgeClasses();
+
     return (
       <div>
-        <span className={classes}>{this.formatCount()}</span>
+        {this.props.children}
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.handleIncrement({ id: 1 })}
+          onClick={() => this.handleIncrement}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -43,7 +44,7 @@ class Counter extends Component {
   }
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
@@ -51,8 +52,8 @@ class Counter extends Component {
     //Object destructuring
     // Old: return this.state.count === 0 ? "Zero" : this.state.count;
     //New: after destructuring
-    const { count } = this.state;
-    return count === 0 ? "Zero" : count;
+    const { value } = this.state;
+    return value === 0 ? "Zero" : value;
   }
 }
 
