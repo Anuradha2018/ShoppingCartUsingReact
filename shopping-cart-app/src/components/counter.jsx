@@ -29,7 +29,7 @@ class Counter extends Component {
       <div>
         <span className={classes}>{this.formatCount()}</span>
         <button
-          onClick={() => this.handleIncrement({ product })}
+          onClick={() => this.handleIncrement({ id: 1 })}
           className="btn btn-secondary btn-sm"
         >
           Increment
