@@ -18,6 +18,7 @@ class Counter extends Component {
     //if this is a part of a standalone function, it refers to window object
     // if strict mode is enabled, this is undefined
     // console.log("increment clicked", this);
+    // below method is telling react that this state is going to change, react will schedule a call to the render method, this is an asynchronous call.
     this.setState({ count: this.state.count + 1 });
   };
 
