@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Counter from "./counter";
 class Counters extends Component {
+  // below state is private to this component, invisible to other components.
+  // sometimes a component may not have state, it gets it via props.
+  //props are read only
   state = {
     counters: [
       {
