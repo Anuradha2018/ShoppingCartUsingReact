@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 class Counter extends Component {
+  //below state property is initiated only once when
+  // the instrance of the counter component is created
+  // when we click the reset button the local state of the counter component  is not updated
+  // so we should remove the local state in the counter component and have the single source of truth
   state = {
     value: this.props.counter.value
   };
