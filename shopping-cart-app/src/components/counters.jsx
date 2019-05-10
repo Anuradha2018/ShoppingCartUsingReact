@@ -24,6 +24,17 @@ class Counters extends Component {
       }
     ]
   };
+  handleIncrement = counter => {
+    const counters = [...this.state.counters];
+    console.log("handle Increment", counters);
+    // now we need to receive the index of the counter that we receive as the parameter
+    const index = counters.indexOf(counter);
+    // cloning the object that we receive
+    counters[index] = { ...counter };
+    counters[index].value++;
+    console.log(this.state.counters[index]);
+    this.setState({ counters });
+  };
   handleDelete = counterId => {
     const counters = this.state.counters.filter(c => c.id !== counterId);
     this.setState({ counters });
@@ -52,6 +63,7 @@ class Counters extends Component {
             // value={counter.value}
             // id={counter.id}
             //object being passed
+            onIncrement={this.handleIncrement}
             counter={counter}
           >
             <h4>Title #{counter.id}</h4>

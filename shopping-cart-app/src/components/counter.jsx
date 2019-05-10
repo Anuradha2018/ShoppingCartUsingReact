@@ -4,9 +4,10 @@ class Counter extends Component {
   // the instrance of the counter component is created
   // when we click the reset button the local state of the counter component  is not updated
   // so we should remove the local state in the counter component and have the single source of truth
-  state = {
+  /*state = {
     value: this.props.counter.value
-  };
+  };*/
+
   /*constructor() {
     super();
     // this here gives reference to the counter object.
@@ -15,7 +16,7 @@ class Counter extends Component {
   }*/
   // arrow function dont rebind the this key word, it rebinds
 
-  handleIncrement = () => {
+  /*handleIncrement = () => {
     // this gives error because we dont have access to the state property
     // console.log("íncrement clicked", this.state.count);
     // if 'this'is called as a part of method in an object, 'this' returns reference to that object
@@ -24,8 +25,9 @@ class Counter extends Component {
     // console.log("increment clicked", this);
     // below method is telling react that this state is going to change, react will schedule a call to the render method, this is an asynchronous call.
     // console.log(product);
-    this.setState({ value: this.state.value + 1 });
-  };
+    // this.setState({ value: this.state.value + 1 });
+
+  };*/
 
   render() {
     // 'Props' are plain javascript objects that includes all the attributes that we set in the counters component
@@ -38,7 +40,7 @@ class Counter extends Component {
         {this.props.children}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -54,7 +56,7 @@ class Counter extends Component {
   }
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
@@ -62,7 +64,7 @@ class Counter extends Component {
     //Object destructuring
     // Old: return this.state.count === 0 ? "Zero" : this.state.count;
     //New: after destructuring
-    const { value } = this.state;
+    const { value } = this.props.counter;
     return value === 0 ? "Zero" : value;
   }
 }
