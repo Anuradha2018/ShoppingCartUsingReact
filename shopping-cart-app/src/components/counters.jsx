@@ -24,8 +24,9 @@ class Counters extends Component {
       }
     ]
   };
-  handleDelete = () => {
-    console.log("Évent Handler Called");
+  handleDelete = counterId => {
+    const counters = this.state.counters.filter(c => c.id !== counterId);
+    this.setState({ counters });
   };
   render() {
     return (
@@ -34,7 +35,11 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
-            value={counter.value}
+            // below are the props that does declaration of the counter object, instead of the properties the counter object can be passed as a prop.
+            // value={counter.value}
+            // id={counter.id}
+            //object being passed
+            counter={counter}
           >
             <h4>Title #{counter.id}</h4>
           </Counter>
