@@ -48,23 +48,21 @@ class Counters extends Component {
     this.setState({ counters });
   };*/
   render() {
+    const { onReset, counters, onDelete, onIncrement } = this.props;
     return (
       <div>
-        <button
-          onClick={this.props.onReset}
-          className="btn btn-primary btn-sm m-2"
-        >
+        <button onClick={onReset} className="btn btn-primary btn-sm m-2">
           Clear
         </button>
-        {this.props.counters.map(counter => (
+        {counters.map(counter => (
           <Counter
             key={counter.id}
-            onDelete={this.props.onDelete}
+            onDelete={onDelete}
             // below are the props that does declaration of the counter object, instead of the properties the counter object can be passed as a prop.
             // value={counter.value}
             // id={counter.id}
             //object being passed
-            onIncrement={this.props.onIncrement}
+            onIncrement={onIncrement}
             counter={counter}
           >
             <h4>Title #{counter.id}</h4>
