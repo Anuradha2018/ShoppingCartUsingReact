@@ -24,6 +24,20 @@ class App extends Component {
       }
     ]
   };
+  //LIFECYCLE HOOK: this constructor is called only once when an instance of the class is created.
+  constructor() {
+    super();
+    console.log("App-constructor");
+    // we can have the state set directly, for example: this.state = this.state.something.
+    // we should not use setState() because this method can only be called when a component is called and placed in the DOM
+    // this.state = this.props.something will not work unless we dont pass 'props'as a parameter in the constructor also in the base class.
+  }
+  componentDidMount() {
+    // ajax call
+    // call the setState with new data
+    console.log("App mounted");
+  }
+
   handleIncrement = counter => {
     const counters = [...this.state.counters];
     console.log("handle Increment", counters);
@@ -45,6 +59,7 @@ class App extends Component {
     this.setState({ counters });
   };
   render() {
+    console.log("App rendered");
     return (
       <React.Fragment>
         <Navbar

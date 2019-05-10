@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 class Counter extends Component {
+  // using componentDidUpdate lifecycle hook
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // ajax call and get te new data from the srver.
+    }
+  }
   //below state property is initiated only once when
   // the instrance of the counter component is created
   // when we click the reset button the local state of the counter component  is not updated
@@ -28,13 +37,15 @@ class Counter extends Component {
     // this.setState({ value: this.state.value + 1 });
 
   };*/
-
+  componentWillUnmount() {
+    console.log("Component Unmount"); // works when we want to clean up, for example in this project, while deleting the items, we can see this being executed
+  }
   render() {
     // 'Props' are plain javascript objects that includes all the attributes that we set in the counters component
     // below in line 31, value and selected will be the property of the prop object
     //key will not be part of that because key are used to uniquely identify elements
     // console.log("props", this.props);
-
+    console.log("Counter Rendered");
     return (
       <div>
         {this.props.children}
