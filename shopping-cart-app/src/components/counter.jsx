@@ -23,7 +23,7 @@ class Counter extends Component {
     // console.log("çonstructor", this);
     this.handleIncrement = this.handleIncrement.bind(this);
   }*/
-  // arrow function dont rebind the this key word, it rebinds
+  // arrow function dont rebind the this key word, it inherits
 
   /*handleIncrement = () => {
     // this gives error because we dont have access to the state property
