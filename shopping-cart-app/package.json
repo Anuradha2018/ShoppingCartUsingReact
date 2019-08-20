@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "lodash": "^4.17.14",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",
+    "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
